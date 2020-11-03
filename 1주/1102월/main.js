@@ -13,7 +13,7 @@ function getArea(name, a, b, c) {
         return a * b
     } else if (name === 'trapezoid') {
         newArr.push(name, (a + b) / 2 * c)
-        return (a + b) / 2 * c
+        return (a + b) * c / 2
     } else if (name === 'sumCircle') {
         let sum = 0;
         for (let a = 1; a <= b; a++) {
