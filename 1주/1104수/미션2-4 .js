@@ -1,4 +1,4 @@
-const data = {
+let data = {
     "debug": "on",
     "window": {
         "title": "Sample Konfabulator Widget",
@@ -25,14 +25,14 @@ const data = {
     }
 }
 
-const result_list = []
+let list = []
 
 function findNumber(obj) {
 
-    for (const i in obj) { //객체 돌면서 키값 검색
-        if (typeof(obj[i]) === 'number') {
-            result_list.push(i) //넘버랑 일치하면 넣어줌
-        } else if (typeof(obj[i]) === 'object') {
+    for (let i in obj) {
+        if (typeof (obj[i]) === 'number') {
+            list.push(i) //넘버랑 일치하면 넣어줌
+        } else if (typeof (obj[i]) === 'object') {
             findNumber(obj[i]); //넘버랑 일치하지않는것들은 다시한번
         }
     }
@@ -42,4 +42,4 @@ findNumber(data)
 
 
 
-console.log(result_list)
+console.log(list)
