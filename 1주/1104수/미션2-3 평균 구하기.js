@@ -24,10 +24,33 @@ function average() {
         sum / grades[i].length
         eachAv.push(sum / grades[i].length);
     }
-
     console.log(eachAv) // 각 학생의 평균
 }
 
-function highestAv() {
+average();
 
+function highestAv() {
+    for (let i = 0; i < grades.length; i++) {
+        grades[i].sort(function(a, b) {
+            return b - a;
+        });
+
+    }
 }
+highestAv();
+
+function maxSumAv() {
+
+    let maxSum = 0;
+
+    for (let i = 0; i < grades.length; i++) {
+        maxSum += grades[i][0]
+    }
+
+    return maxSum / grades.length
+}
+
+maxSumAv();
+
+//각 배열을 높은 순서로 정렬
+//첫번째값 뽑아서 평균
