@@ -1,38 +1,38 @@
-/*
-//0부터 4개의 숫자까지 한글자씩 차례대로 말한다고 가정
-0    //0  a           
-1    //1  b
-10   //2  a b
-11   //3  a b 
-100  //4  a b a 
-101  //5  
-110  //6  
-111  //7  
-1000 //8  
-1001 //9  
-~~
-*/
+let binaryArr = [];
+let result = [];
+let gildongResult = [];
 
-//if 4개의 숫자까지 2명이 말한다면 // 0~7
-//if 5개의 숫자까지 3명이 말한다면 // 0~14                            
-//10진법을 2진법으로 바꿀때 toString(2);
+const solution = (n, t, m, p) => {
+    const totalNum = Math.pow(n, t - 1) - 1; //총 숫자개수
 
-let newArr = [];
+    const changeToBinary = (totalNum) => {
+        for (let i = 0; i <= totalNum; i++) {
+            let binary = i.toString(n); // 2진법 ex) 3 -> '11'
+            binaryArr.push(binary);
+        }
+    };
 
-function solution(base, digit, people) {
-    let num = (digit - 1) * people
-    for (let i = 0; i < num; i++) {
-        binarySytem = i.toString(base) //문자열
-        newArr.push(binarySytem)
+    changeToBinary(totalNum);
+
+    for (let elem of binaryArr) {
+        let num = elem.split(''); // 2진법바뀐 수 하나씩 나눠주기
+        console.log(num)
+        result.push(...num);
     }
-}
 
-solution(2, 5, 3)
-console.log(newArr)
+    console.log(result); //총 2진법 수
 
-//3명이 하는 게임에서 홍길동의 차례에 어떤 숫자를 말해야 하는지를 알 수 있는 프로그램을 만든다.
-function order(p) {
-    for (let i = 0; i < newArr.length; i++) {
-        newArr
-    }
-}
+
+
+    const gildong = (m, p) => {
+        for (let i = 0; p + m * i - 1 < result.length; i++) {
+            gildongResult.push(result[p + m * i - 1]);
+        }
+    };
+    gildong(m, p);
+
+    console.log(gildongResult); //길동이 말해야하는 수
+
+};
+
+solution(2, 4, 2, 1);

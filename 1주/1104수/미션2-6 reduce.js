@@ -11,6 +11,7 @@ numbers.forEach(function(n) {
     sum += n;
 })
 
+console.log(sum);
 //////////////////////////////////
 function myReduce(arr, acc) {
     if (acc === undefined) {

@@ -1,18 +1,32 @@
-// 주어진 사람들 중 아래 조건을 만족하는 사람들로 구성된 배열을 만들어서 반환하는 함수 만들기.
+///////////////////////////////무식하게 코딩
+let newArr = [];
 
-// 특수기호가 없는 아이디 제외
-// 아이디에서 숫자를 제거
-// 2 가지 iteration을 처리하는 버전을 만든다.
-// for/while문을 사용한 버전 만들기.
-// forEach,filter, map등의 고차함수를 사용한 버전 만들기
-// const peoples = ["crong!@#", "honux5", "sarah#", "hea3d", "zello", "5lucas"];
-// filterId(peoples)
-// > ["honux", "head", "zello", "lucas"]
+function filterId(peoples) {
+    for (let i = 0; i < peoples.length; i++) {
+        if (!peoples[i].includes('!') && !peoples[i].includes('@') &&
+            peoples[i].includes('#') && peoples.includes(3) && peoples.includes(5)) {
+            newArr.push(peoples[i])
+        }
+    }
+}
 
+//////////////////////////////필터메소드  (정규표현식공부할 것)
+function specialCharacters(value) {
+    return !value.includes('!') && !value.includes('@') && !value.includes('#')
+}
 
+function numberIncluded(value) {
+    return value.includes(1) && value.includes(3) && value.includes(5)
+}
 
+peoples.filter(specialCharacters).filter(numberIncluded);
 
+/*
+필터메소드 연습
+function isBigEnough(value) {
+    return value >= 10;
+  }
 
-
-
-//못품
+  var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+  // filtered 는 [12, 130, 44]
+*/

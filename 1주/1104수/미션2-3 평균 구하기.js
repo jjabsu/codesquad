@@ -12,21 +12,22 @@ let grades = [
 각 학생의 평균점수(1)와 모든 학생의 최고점수의 평균점수(2)를 출력하라.
 */
 
-let newArr = [];
 
 function average() {
+    let eachAv = [];
+
     for (let i = 0; i < grades.length; i++) {
         let sum = 0;
         for (let j = 0; j < grades[i].length; j++) {
             sum = sum + grades[i][j]
         }
         sum / grades[i].length
-        console.log(sum / grades[i].length) //return을 쓰게되면?
+        eachAv.push(sum / grades[i].length);
     }
+
+    console.log(eachAv) // 각 학생의 평균
 }
 
-average();
+function highestAv() {
 
-// grades[0] 원소의 합 / grades[0] 의 길이
-
-//최고점수의 평균
+}

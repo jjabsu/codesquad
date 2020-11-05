@@ -80,7 +80,7 @@ let data = [{
 }]
 
 ///
-var list = [];
+let list = [];
 
 function findValues(obj) {
 
