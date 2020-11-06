@@ -53,7 +53,7 @@ let myFilter = function(arr, test) {
     return result;
 }
 
-//reduce로 map구현
+//map reduce로 구현
 let map = function(array, callback) {
 
     return array.reduce(function(acc, cur) {
@@ -63,7 +63,7 @@ let map = function(array, callback) {
 }
 
 
-//reduce로 filter구현
+//filter reduce로 구현
 let filter = function(array, callback) {
 
     return array.reduce(function(acc, cur) {
