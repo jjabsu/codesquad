@@ -37,20 +37,52 @@ function highestAv() {
 
     }
 }
+
 highestAv();
 
 function maxSumAv() {
 
     let maxSum = 0;
-
     for (let i = 0; i < grades.length; i++) {
         maxSum += grades[i][0]
     }
-
     return maxSum / grades.length
 }
 
 maxSumAv();
 
-//각 배열을 높은 순서로 정렬
-//첫번째값 뽑아서 평균
+/////////////////////////////////////////////////////
+
+let grades = [
+    [88, 76, 77],
+    [33, 44, 44],
+    [90, 100, 94],
+    [30, 44, 98]
+];
+
+
+// 배열 원소들의 평균값 구하는 함수
+function average(arr) {
+    const sum = arr.reduce((prev, curr) => prev + curr);
+    return sum / arr.length;
+}
+
+// 각 학생의 평균 점수 배열
+let getAverageGrade = grades.map(average);
+// [80.33333333333333, 40.333333333333336, 94.66666666666667, 57.333333333333336]
+
+// 각 학생들의 가장 높은 점수들의 배열
+let highestGrade = grades.map((item) => {
+    item.sort((a, b) => b - a);
+    return item[0];
+});
+
+// let highestGrade = grades.map(function (item) {
+//     item.sort(function (a, b) {
+//         return b - a;
+//     })
+//     return item[0];
+// })
+
+console.log(getAverageGrade);
+console.log(average(highestGrade));
