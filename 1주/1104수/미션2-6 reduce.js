@@ -21,11 +21,11 @@ let myForEach = function(arr, callback) {
 };
 
 //filter
-let myFilter = function(collection, test) {
+let myFilter = function(arr, test) {
     let arr = [];
-    for (let i = 0; i < collection.length; i++) {
-        if (test(collection[i])) {
-            arr.push(collection[i]);
+    for (let i = 0; i < arr.length; i++) {
+        if (test(arr[i])) {
+            arr.push(arr[i]);
         }
     }
     return arr;
