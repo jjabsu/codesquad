@@ -22,13 +22,13 @@ let myForEach = function(arr, callback) {
 
 //filter
 let myFilter = function(arr, test) {
-    let arr = [];
+    let result = [];
     for (let i = 0; i < arr.length; i++) {
         if (test(arr[i])) {
-            arr.push(arr[i]);
+            result.push(arr[i]);
         }
     }
-    return arr;
+    return result;
 };
 
 //filter myForEach로 구현
@@ -64,7 +64,7 @@ let map = function(array, callback) {
 
 
 //reduce로 filter구현
-let filter123 = function(array, callback) {
+let filter = function(array, callback) {
 
     return array.reduce(function(acc, cur) {
         if (callback(cur)) {
@@ -77,6 +77,6 @@ let filter123 = function(array, callback) {
 //테스트
 let arr = [1, 2, 3]
 
-filter123(arr, function(e) {
+filter(arr, function(e) {
     return e > 2
 })
