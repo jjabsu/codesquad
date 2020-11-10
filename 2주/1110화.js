@@ -18,14 +18,13 @@ const HashMap = function () {
 
         const index = hash(key, chageValue); //해쉬함수의 값을 index로 활용
 
-        if (storage[index] === undefined) {
-            storage[index] = [[key, value]]; //없으면 넣어줌
-
+        if (storage[index] === undefined) {  //비워져 있으면
+            storage[index] = [[key, value]]; //값을 넣어줌    chaining            
         } else {
-            const inserted = false;
+            const inserted = false;                                            
             for (let i = 0; i < storage[index].length; i++) { //배열을 돌면서 
-                if (storage[index][i][0] === key) { //키값이 겹치면
-                    storage[index][i][1] = value; //밸류값 바꿔줌
+                if (storage[index][i][0] === key) { 
+                    storage[index][i][1] = value; 
                     inserted = true;
                 }
             }
@@ -120,15 +119,15 @@ const HashMap = function () {
 
     //size() 전체 아이템 개수를 리턴한다.
     this.size = () => {
-        let hashSize = 0
+        let size = 0
         for (let i = 0; i < storage.length; i++) {
             if (storage[i] !== undefined) {
                 for (let j = 0; j < storage[i].length; j++) {
-                    hashSize += 1
+                    size += 1
                 }
             }
         }
-        return hashSize
+        return size
     }
     //clear() 전체 맵을 초기화한다.
     this.clear = () => {
