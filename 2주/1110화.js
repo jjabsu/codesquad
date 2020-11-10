@@ -21,10 +21,10 @@ const HashMap = function () {
         if (storage[index] === undefined) {  //비워져 있으면
             storage[index] = [[key, value]]; //값을 넣어줌    chaining            
         } else {
-            const inserted = false;                                            
+            const inserted = false;
             for (let i = 0; i < storage[index].length; i++) { //배열을 돌면서 
-                if (storage[index][i][0] === key) { 
-                    storage[index][i][1] = value; 
+                if (storage[index][i][0] === key) {
+                    storage[index][i][1] = value;
                     inserted = true;
                 }
             }
@@ -80,7 +80,7 @@ const HashMap = function () {
     //keys() 전체 키 목록을 [String] 배열로 리턴한다.
     this.keys = () => {
         // console.log(storage)
-        var key = [];
+        let key = [];
         for (let i = 0; i < storage.length; i++) {
             if (storage[i] !== undefined) {
                 // console.log(storage[i])
