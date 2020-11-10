@@ -9,7 +9,7 @@
 키값이 겹칠 경우 다른데 넣어준다.
 */
 
-function hash(string, max) {
+function hash(string, change) {
 
     let hash = 0;
 
@@ -17,7 +17,7 @@ function hash(string, max) {
         hash += string.charCodeAt(i);
         console.log(hash)
     }
-    return hash % max;
+    return hash % change;
 };
 
 const HashTable = function() {

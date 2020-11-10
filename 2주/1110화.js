@@ -24,14 +24,16 @@ const HashMap = function () {
         } else {
             const inserted = false;
             for (let i = 0; i < storage[index].length; i++) { //배열을 돌면서 
-                if (storage[index][i][0] === key) { //키값이 겹치면 value를 바꿔줌
-                    storage[index][i][1] = value;
+                if (storage[index][i][0] === key) { //키값이 겹치면
+                    storage[index][i][1] = value; //밸류값 바꿔줌
                     inserted = true;
                 }
             }
-            if (inserted == false) storage[index].push([key, value]); //
+            if (inserted == false) {
+                storage[index].push([key, value]); //
+            }
+            console.log(index)
         }
-        console.log(index)
     }
 
     //containsKey(String) 해당 키가 존재하는지 판단해서 Bool 결과를 리턴한다.
@@ -178,7 +180,7 @@ console.log('####################')
 // getValue test
 console.log('get value of JohnSmith')
 console.log('=== result ===')
-console.log(ht.getValue('JohnSmith')) // expected : 521-1234
+console.log(ht.get('JohnSmith')) // expected : 521-1234
 console.log('####################')
 // isEmpty test
 console.log('JohnSmith is Empty?')
@@ -209,5 +211,3 @@ console.log(ht.size()) // expected : 3
 console.log('####################')
 
 console.log(typeof ht.keys())
-
-module.exports = HashMap
