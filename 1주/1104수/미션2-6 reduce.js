@@ -13,6 +13,7 @@ let myReduce = function(arr, callback, accumulator) {
     return accumulator;
 };
 
+
 //forEach
 let myForEach = function(arr, callback) {
     for (let i = 0; i < arr.length; i++) {

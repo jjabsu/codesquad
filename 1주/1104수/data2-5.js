@@ -80,4 +80,4 @@ let data = [{
 }]
 
 
-exports.data = data;
+// exports.data = data;

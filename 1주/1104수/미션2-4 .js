@@ -1,4 +1,4 @@
-const tree = require('./미션2-4.js')
+const data = require('./미션2-4.js')
 
 const list = []
 
