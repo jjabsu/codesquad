@@ -2,14 +2,6 @@ function getDataArr(string) {
     return string.split('');
 }
 
-function braceFilter(item) {
-    return item === '[' || item === ']';
-}
-
-function valueFilter(item) {
-    return item !== ',' && item !== '[' && item !== ']'
-}
-
 function braceChecker(braceArr) {
     let stack = [];
     for (let i of braceArr) {
@@ -35,8 +27,13 @@ function braceChecker(braceArr) {
 
 function printInfo(string) {
     const dataArr = getDataArr(string);
-    const braceArr = dataArr.filter(braceFilter);
-    const valueArr = dataArr.filter(valueFilter);
+
+    const braceArr = dataArr.filter(function(item) {
+        return item === '[' || item === ']';
+    });
+    const valueArr = dataArr.filter(function(item) {
+        return item !== ',' && item !== '[' && item !== ']'
+    });
     console.log(
         `깊이 수준은 ${braceArr.length / 2}이며, 총 ${valueArr.length}개의 원소가 포함되어 있습니다.`
     );
@@ -44,7 +41,11 @@ function printInfo(string) {
 
 function main(string) {
     const dataArr = getDataArr(string);
-    const braceArr = dataArr.filter(braceFilter);
+
+    const braceArr = dataArr.filter(function(item) {
+        return item === '[' || item === ']';
+    });
+
     if (braceChecker(braceArr)) {
         printInfo(string);
     }
