@@ -1,59 +1,61 @@
-function getDataArr(string) {
-    return string.split('');
-}
+// let data = "[1]"
+// let data = "]]1[["
+let data = "[1,2,[3,4,[5,[6]]]]";
+// let data = "[1,2,[3,4,[5,[6]]";
 
-function braceChecker(braceArr) {
-    let stack = [];
-    for (let i of braceArr) {
-        let lastItem = stack[stack.length - 1];
-        if (i === '[') {
-            stack.push(i);
-        } else {
-            if (lastItem === '[') {
-                stack.pop();
-            } else {
-                console.log('여는 괄호가 일치하지 않습니다.');
-            }
-        }
-    }
-    if (stack.length !== 0) {
-        console.log('닫는 괄호가 일치하지 않습니다.');
-    } else {
-        console.log('괄호 매칭이 맞습니다!');
-        return true;
-    }
-}
+function check(data) {
+    let dataArr = data.split('');
 
-
-function printInfo(string) {
-    const dataArr = getDataArr(string);
-
-    const braceArr = dataArr.filter(function(item) {
+    let braceArr = dataArr.filter(function(item) {
         return item === '[' || item === ']';
     });
-    const valueArr = dataArr.filter(function(item) {
+
+    let valueArr = dataArr.filter(function(item) {
         return item !== ',' && item !== '[' && item !== ']'
     });
-    console.log(
-        `깊이 수준은 ${braceArr.length / 2}이며, 총 ${valueArr.length}개의 원소가 포함되어 있습니다.`
-    );
-}
 
-function main(string) {
-    const dataArr = getDataArr(string);
+    let stack = []; //데이터 담아놓음
+    let maxDepth = 0;
+    let depth = 0;
 
-    const braceArr = dataArr.filter(function(item) {
-        return item === '[' || item === ']';
-    });
+    for (let i of braceArr) {
 
-    if (braceChecker(braceArr)) {
-        printInfo(string);
+        if (i === '[') { // [이면 넣는다
+            stack.push(i);
+            depth++;
+            maxDepth = maxDepth < depth ? depth : maxDepth;
+
+        } else if (i === ']') { // ]이면 뺀다                 //   [[ ]]]] <- 이 경우
+            if (!stack.pop()) { //뺄 값이 없으면
+                console.log('불일치')
+                return false;
+            }
+
+            // if (stack.pop() === '[') {
+            //     depth--;
+            // } else if (stack.pop() === undefined) {
+            //     console.log('불일치')
+            //     return
+            // }
+
+            // if (stack[stack.length - 1 === '[']) {
+            //     stack.pop();
+            //     depth--;
+            // } else if (stack[stack.length - 1 === undefined]) {
+            //     console.log('불일치')
+            //     return
+            // }
+        }
+    }
+
+
+    if (stack.length !== 0) { //빼줬는데 [가 남았다면
+        console.log('불일치')
+    } else {
+        return console.log(
+            `깊이 수준은 ${maxDepth}이며, 총 ${valueArr.length}개의 원소가 포함되어 있습니다.`
+        ); //병렬배열 처리못함
     }
 }
 
-
-const data1 = "[1, 2, [3]]";
-main(data1);
-
-const data2 = "[1,2,[3,4,[5,[6]]";
-main(data2);
+check(data);
