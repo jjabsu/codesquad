@@ -12,16 +12,16 @@ function solution(answers) {
         if (answers[i] === person3[i % 10]) score3++;
     }
 
-    var buf = [score1, score2, score3].sort((a, b) => a - b)[2];
+    var max = Math.max(score1, score2, score3);
 
     var answer = [];
-    if (buf == score1) {
+    if (max === score1) {
         answer.push(1);
     }
-    if (buf == score2) {
+    if (max === score2) {
         answer.push(2);
     }
-    if (buf == score3) {
+    if (max === score3) {
         answer.push(3);
     }
 

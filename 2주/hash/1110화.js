@@ -4,9 +4,8 @@ function checkArr(str) {
     const value = [];
     let maxDepth = 0;
     let depth = 0;
-    let data = filterBraceNum(str);
-    let dataTree = new Node("root");
-    for (let x of data) {
+
+    for (let x of str) {
         if (x === "[") {
             stack.push("[");
             depth++;
@@ -29,15 +28,7 @@ function checkArr(str) {
         console.log(
             `깊이 수준은 ${maxDepth}이며, 총 ${value.length}개의 원소가 포함되어 있습니다.`
         );
-        console.log(run(dataTree, dataTree));
-        return;
-    }
-}
 
-class Node {
-    constructor(type, value) {
-        this.type = type;
-        this.value = value;
-        this.child = [];
+        return;
     }
 }
