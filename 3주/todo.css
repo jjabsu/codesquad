@@ -20,13 +20,10 @@
         margin: 0px auto;
     }
     
-    #list {
+    
+    #ul {
         border: 2px solid green;
         background-color: lightyellow;
         padding: 20px;
         margin: 50px 10px 20px 30px;
-    }
-    
-    .li {
-        list-style: none;
     }
