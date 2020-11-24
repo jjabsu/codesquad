@@ -47,7 +47,7 @@ let timer;
 
 mouseMoveHandler = (event) => {
     if (!timer) {
-        timer = window.setTimeout(() => {
+        timer = setTimeout(() => {
             moveToAddData(event);
             timer = null;
         }, 500);
