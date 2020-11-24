@@ -30,19 +30,20 @@ list.addEventListener("mouseout", hideMenu)
 
 
 
-fruitObj = {};
+let fruitObj = {};
 
 //데이터
-addData = (fruit) => {
-    if (!fruitObj.hasOwnProperty(fruit)) {
-        fruitObj[fruit] = 1; //없으면 1
+addData = (item) => {
+    if (!fruitObj.hasOwnProperty(item)) {
+        fruitObj[item] = 1; //없으면 1
     } else {
-        fruitObj[fruit]++; // 있으면 더해주기
+        fruitObj[item]++; // 있으면 더해주기
     }
 }
 
 //핸들러
 let timer;
+
 mouseMoveHandler = (event) => {
     if (!timer) {
         timer = window.setTimeout(() => {
@@ -52,7 +53,7 @@ mouseMoveHandler = (event) => {
     }
 }
 
-//마우스 움직이면 addData에 실행
+//마우스 움직이면 addData 실행 및 showData실행
 moveToAddData = (event) => {
     if (event.target.tagName === 'LI') {
         addData(event.target.innerHTML); //innerHTML에 넣어줌
@@ -69,3 +70,5 @@ showData = () => {
 }
 
 list.addEventListener("mousemove", mouseMoveHandler)
+
+
