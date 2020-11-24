@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div onmouseover="showmenu('ul');" onmouseout="setTimeToHide()">
+    <div id="title" >
         리스트
     </div>
 
-    <ul id="ul" onmouseover="ReSetTimer()" onmouseout="setTimeToHide()" style="display:none;">
+    <ul id="list" style="display:none;">
         <li>사과</li>
         <li>바나나</li>
         <li>수박</li>
     </ul>
+
+    <div id="console"></div>
 
     <script src="main.js"></script>
 </body>
