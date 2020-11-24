@@ -1,14 +1,16 @@
 let title = document.querySelector("#title")
 let list = document.querySelector("#list")
+let consoleBox = document.querySelector("#consoleBox")
+let hide;
 
-function showmenu() {
+function showMenu() {
     if (list.style.display === 'none') {
         list.style.display = 'block';
     }
 }
 
-function hidemenu() {
-    setTimeout(function () {
+function hideMenu() {
+    hide = setTimeout(function () {
         if (list.style.display = 'block') {
             list.style.display = 'none';
         }
@@ -16,13 +18,12 @@ function hidemenu() {
 }
 
 function reset() {
-    clearTimeout(hidemenu);
+    clearTimeout(hide);
 };
 
-title.addEventListener("mouseover", showmenu)
-title.addEventListener("mouseout", hidemenu)
-
+title.addEventListener("mouseover", showMenu)
+title.addEventListener("mouseout", hideMenu)
 
 list.addEventListener("mouseover", reset)
-list.addEventListener("mouseout", hidemenu)
+list.addEventListener("mouseout", hideMenu)
 
