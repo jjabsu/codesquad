@@ -1,33 +1,28 @@
-
-let target;
-let hide;
-
 let title = document.querySelector("#title")
 let list = document.querySelector("#list")
 
 function showmenu() {
-    target = document.getElementById("list")
-    if (target.style.display === 'none') {
-        target.style.display = 'block';
+    if (list.style.display === 'none') {
+        list.style.display = 'block';
     }
 }
 
-function setTimeToHide() {
-    hide = setTimeout(function () {
-        if (target.style.display = 'block') {
-            target.style.display = 'none';
+function hidemenu() {
+    setTimeout(function () {
+        if (list.style.display = 'block') {
+            list.style.display = 'none';
         }
     }, 1000);
 }
 
-function ReSetTimer() {
-    clearTimeout(hide);
+function reset() {
+    clearTimeout(hidemenu);
 };
 
 title.addEventListener("mouseover", showmenu)
-title.addEventListener("mouseout", setTimeToHide)
+title.addEventListener("mouseout", hidemenu)
 
 
-list.addEventListener("mouseover", ReSetTimer)
-list.addEventListener("mouseout", setTimeToHide)
+list.addEventListener("mouseover", reset)
+list.addEventListener("mouseout", hidemenu)
 
