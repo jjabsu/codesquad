@@ -42,12 +42,13 @@ addData = (item) => {
 }
 
 //핸들러
+
 let timer;
 
 mouseMoveHandler = (event) => {
     if (!timer) {
         timer = window.setTimeout(() => {
-            moveToAdd(event);
+            moveToAddData(event);
             timer = null;
         }, 500);
     }
