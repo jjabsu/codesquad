@@ -17,7 +17,7 @@ function setTimeToHide() {
         if (target.style.display = 'block') {
             target.style.display = 'none';
         }
-    }, 1900);
+    }, 1000);
 }
 
 function ReSetTimer() {
