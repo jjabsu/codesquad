@@ -58,7 +58,7 @@ mouseMoveHandler = (event) => {
 moveToAddData = (event) => {
     if (event.target.tagName === 'LI') {
         addData(event.target.innerHTML); //innerHTML에 넣어줌
-        this.showData();
+        showData();
     }
 }
 
