@@ -27,3 +27,45 @@ title.addEventListener("mouseout", hideMenu)
 list.addEventListener("mouseover", reset)
 list.addEventListener("mouseout", hideMenu)
 
+
+
+
+fruitObj = {};
+
+//데이터
+addData = (fruit) => {
+    if (!fruitObj.hasOwnProperty(fruit)) {
+        fruitObj[fruit] = 1; //없으면 1
+    } else {
+        fruitObj[fruit]++; // 있으면 더해주기
+    }
+}
+
+//핸들러
+let timer;
+mouseMoveHandler = (event) => {
+    if (!timer) {
+        timer = window.setTimeout(() => {
+            moveToAdd(event);
+            timer = null;
+        }, 500);
+    }
+}
+
+//마우스 움직이면 addData에 실행
+moveToAddData = (event) => {
+    if (event.target.tagName === 'LI') {
+        addData(event.target.innerHTML); //innerHTML에 넣어줌
+        this.showData();
+    }
+}
+
+//보여주기
+showData = () => {
+    const template = Object.keys(fruitObj).map(curr =>
+        `<li> ${curr} : ${fruitObj[curr]} </li>`
+    ).join('');
+    consoleBox.innerHTML = template;
+}
+
+list.addEventListener("mousemove", mouseMoveHandler)
