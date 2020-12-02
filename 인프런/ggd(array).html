@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let result = []
+
+        for (var n = 2; n < 10; n++) {
+            for (var i = 1; i < 10; i++) {
+                result[i] = n * i
+                //push로 구현하려면 좀 다르게 해야됨
+            }
+
+
+            document.write("<h2>" + n + "단</h2>")
+            for (var i = 1; i < 10; i++) {
+                document.write(n + "x" + (i) + "=" + result[i] + "<br>")
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

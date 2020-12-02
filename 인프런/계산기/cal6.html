@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 함수로 구현 -->
+
+    <div id="out">알 이즈 웰</div>
+
+    <script>
+
+        function getFirstValue() {
+            let n1 = Number(prompt("숫자"));
+            return n1
+        }
+
+        let n = 2
+        function getSecondValue() {
+            let n2 = Number(prompt(n + "번째숫자"));
+            n++;
+            return n2;
+        }
+
+        function getOperator() {
+            let op;
+
+            while (true) {
+                op = prompt("연산자")
+                if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+                    break;
+                } else {
+                    alert("똑바로 입력하시오");
+                }
+            }
+            return op;
+        }
+
+        function calculate(first, second, op) {
+            var ret;
+
+            switch (op) {
+                case "+":
+                    ret = first + second;
+                    break;
+                case "-":
+                    ret = first - second;
+                    break;
+                case "*":
+                    ret = first * second;
+                    break;
+                case "/":
+                    ret = first / second;
+                    break;
+            }
+            return ret;
+        }
+
+        function print(value) {
+
+            return "결과값은 " + value + "입니다."
+            // let out = document.getElementById("out")
+            // out.innerHTML = value;
+        }
+
+
+
+        function main() {
+            let result = getFirstValue()
+            while (true) {
+                let op = getOperator()
+                if (op === "q") {
+                    break;
+                }
+
+                let num = getSecondValue()
+                result = calculate(result, num, op) //위에서 계산해서 인자에 넣어줌
+            }
+            let out = document.getElementById("out")
+            out.innerHTML = print(result);
+        }
+        main();
+
+
+    </script>
+</body>
+
+</html>

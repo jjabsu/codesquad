@@ -46,6 +46,7 @@ addData = (item) => {
 let timer;
 
 mouseMoveHandler = (event) => {
+    
     if (!timer) {
         timer = setTimeout(() => {
             moveToAddData(event);

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- html로 구현 -->
+    <div>
+        첫번째 수: <input type="text" id="n1"> <br>
+        두번째 수: <input type="text" id="n2"> <br>
+        <button id="btn">실행</button>
+    </div>
+
+    <div id="out">알 이즈 웰</div>
+
+    <script>
+
+        let btn = document.getElementById("btn");
+
+        btn.onclick = function () {
+
+            let str1 = document.getElementById("n1").value;
+            let str2 = document.getElementById("n2").value;
+
+            let n1 = Number(str1);
+            let n2 = Number(str2);
+
+            let out = document.getElementById("out")
+            let str = ""
+            str += "더하기" + n1 + "+" + n2 + "=" + (n1 + n2) + "<br>"
+            str += "빼기" + n1 + "-" + n2 + "=" + (n1 - n2) + "<br>"
+
+            out.innerHTML = str;
+
+            // out.innerHTML = "더하기" + n1 + "+" + n2 + "=" + (n1 + n2) + "<br>" + "빼기" + n1 + "-" + n2 + "=" + (n1 - n2) + "<br>"
+            // 위처럼 쓰는것보다 분리해서
+        }
+
+
+    </script>
+</body>
+
+</html>

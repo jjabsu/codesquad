@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 반복문 구현 -->
+
+    <div id="out">알 이즈 웰</div>
+
+    <script>
+        let out = document.getElementById("out")
+
+        let n1 = Number(prompt("숫자"));
+        let result = n1
+        let n = 2
+
+        while (true) {
+            let op = prompt("연산자")
+
+            if (op === "q") {
+                break;
+            }
+
+            let n2 = Number(prompt(n + "번째숫자"));
+
+            if (op === "+") {
+                result += n2
+            } else if (op === "-") {
+                result -= n2
+            } else {
+                result = "연산자를 제대로 입력하세요."
+                break;
+            }
+
+            n++;
+        }
+        out.innerHTML = "결과값" + result;
+
+    </script>
+</body>
+
+</html>

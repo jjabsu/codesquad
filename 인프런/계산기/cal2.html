@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 변수활용 -->
+    <div id="out"></div>
+
+    <script>
+        let num1 = Number(prompt("숫자"));
+        let num2 = Number(prompt("숫자"));
+
+        console.log(num1 + num2)
+
+        let str = ""
+        str += "<h2>계산기 구현하기</h2>"
+        // str += "더하기" + num1 + "+" + num2 + "=" + (num1 + num2) + "<br>"
+
+        str += `더하기 ${num1} + ${num2} = ${num1 + num2} ` + "<br>"
+
+
+        let out = document.getElementById("out")
+        out.innerHTML = str;
+
+
+        function main() {
+        };
+
+        main();
+
+    </script>
+</body>
+
+</html>

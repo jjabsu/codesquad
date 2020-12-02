@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function cal(x) {
+            let ret = [];
+            for (let i = 0; i < 9; i++) {
+                // ret[i] = x * (i + 1)
+                ret.push(x * (i + 1))
+            }
+            return ret;
+        }
+
+        function print(x, ret) {
+            document.write("<h2>" + x + "단</h2>")
+            for (let i = 0; i < ret.length; i++) {
+                document.write(x + "*" + (i + 1) + "=" + ret[i] + "<br>")
+            }
+        }
+
+        function main() {
+            for (let n = 2; n < 10; n++) {
+                let result = cal(n); //계산결과 배열에 넣음
+                console.log(result)
+                print(n, result) //배열을 돌면서 화면에 보여줌
+            }
+        }
+        main();
+    </script>
+</body>
+
+</html>

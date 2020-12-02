@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 조건문 구현 -->
+    <div>
+        첫번째 수: <input type="text" id="n1"> <br>
+        연산자: <input type="text" id="op"> <br>
+        두번째 수: <input type="text" id="n2"> <br>
+        <button id="btn">실행</button>
+    </div>
+
+    <div id="out">알 이즈 웰</div>
+
+    <script>
+
+        let btn = document.getElementById("btn");
+
+        btn.onclick = function () {
+
+            let out = document.getElementById("out")
+
+            let str1 = document.getElementById("n1").value;
+            let op = document.getElementById("op").value;
+            let str2 = document.getElementById("n2").value;
+
+            let n1 = Number(str1);
+            let n2 = Number(str2);
+
+            let str = ""
+
+            if (op === "+") {
+                str += "합은" + (n1 + n2)
+            } else if (op === "-") {
+                str += "차는" + (n1 - n2)
+            } else {
+                str += "제대로 입력하세요."
+            }
+
+            // switch (op) {
+            //     case "+":
+            //         str += "합은" + (n1 + n2)
+            //         break;
+            //     case "-":
+            //         str += "차는" + (n1 - n2)
+            //         break;
+            //     default:
+            //         str += "제대로 입력하세요."
+            // }
+
+
+            out.innerHTML = str;
+
+
+            // out.innerHTML = "더하기" + n1 + "+" + n2 + "=" + (n1 + n2) + "<br>" + "빼기" + n1 + "-" + n2 + "=" + (n1 - n2) + "<br>"
+            // 위처럼 쓰는것보다 분리해서
+        }
+
+
+    </script>
+</body>
+
+</html>
