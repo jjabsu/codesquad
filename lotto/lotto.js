@@ -2,6 +2,7 @@
 
 let my = document.querySelector("#my")
 let luck = document.querySelector("#luck")
+let bonus = document.querySelector("#bonus")
 
 let totalCount = document.querySelector("#totalCount")
 
@@ -55,10 +56,14 @@ let total = 0;
 
 //이번주 번호
 let week = document.querySelector("#week")
-let btn = document.querySelector("#btn")
-let lucky = [];
+let weekBonus = document.querySelector("#weekBonus")
 
-btn.onclick = function () {
+let btn1 = document.querySelector("#btn1")
+let btn2 = document.querySelector("#btn2")
+let lucky = [];
+let bonusNum = [];
+
+btn1.onclick = function () {
 
     let luckyNum = week.value.split(", ")
     lucky = luckyNum.map(function (e) {
@@ -67,15 +72,19 @@ btn.onclick = function () {
     luck.innerHTML = `이번주 번호: ${lucky}`;
 }
 
-
+btn2.onclick = function () {
+    let b = weekBonus.value
+    bonusNum[0] = b;
+    bonus.innerHTML = `보너스 번호: ${bonusNum}`;
+}
 
 // let lucky = [2, 3, 6, 29, 31, 27];
-// let bonus = [46]
+// let bonus = [1]
 
 //내가 뽑은 번호
 let myLotto = [];
 let checkNum = [];
-
+let checkNum2 = [];
 
 function pickNum() {
     let i = 0;
@@ -108,9 +117,18 @@ function checkLotto() {
     return checkNum;
 }
 
+function checkBonus() {
+    if (myLotto.includes(bonusNum[0])) {
+        checkNum2 = lucky.filter(function (e) {
+            return myLotto.includes(e);
+        })
+    }
+    return checkNum2
+}
 
 
-function print(array) {
+
+function print(array, array2) {
     // luck.innerHTML = `이번주 번호:    ${lucky}`;
     my.innerHTML = `뽑은 숫자:    ${myLotto}`;
     totalCount.innerHTML = `총 게임횟수:    ${count}`;
@@ -119,25 +137,31 @@ function print(array) {
         winner5_count++
         winner5_total += winner5_price;
         total += winner5_price;
-        rank5.innerHTML = `5등 당첨횟수: ${winner5_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner5_count / count) * 100).toFixed(4)}%`
+        rank5.innerHTML = `5등 당첨횟수: ${winner5_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner5_count / count) * 100).toFixed(4)}%`;
 
     } else if (array.length === 4) {
         winner4_count++
         winner4_total += winner4_price;
         total += winner4_price;
-        rank4.innerHTML = `4등 당첨횟수: ${winner4_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner4_count / count) * 100).toFixed(4)}%`
+        rank4.innerHTML = `4등 당첨횟수: ${winner4_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner4_count / count) * 100).toFixed(4)}%`;
 
     } else if (array.length === 5) {
         winner3_count++
         winner3_total += winner3_price;
         total += winner3_price;
-        rank3.innerHTML = `3등 당첨횟수: ${winner3_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner3_count / count) * 100).toFixed(4)}%`
+        rank3.innerHTML = `3등 당첨횟수: ${winner3_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner3_count / count) * 100).toFixed(4)}%`;
+    }
+    else if (array2.length === 5) {
+        winner2_count++
+        winner2_total += winner2_price;
+        total += winner2_price;
+        rank2.innerHTML = `2등 당첨횟수: ${winner3_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner2_count / count) * 100).toFixed(4)}%`;
     }
     else if (array.length === 6) {
         winner1_count++
         winner1_total += winner1_price;
         total += winner1_price;
-        rank1.innerHTML = `1등 당첨횟수: ${winner1_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner1_count / count) * 100).toFixed(4)}%`
+        rank1.innerHTML = `1등 당첨횟수: ${winner1_count} <br>내 번호: ${myLotto} <br> 일치하는 숫자: ${checkNum} <br> 확률:  ${((winner1_count / count) * 100).toFixed(4)}%`;
         clearTimeout(start)
     } else {
         loser_count++;
@@ -158,7 +182,8 @@ let man = document.querySelector("#man")
 function main() {
     pickNum();
     let result = checkLotto();
-    print(result)
+    let result2 = checkBonus();
+    print(result, result2)
 }
 
 let start;
